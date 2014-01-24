@@ -1,0 +1,59 @@
+總共有四大database 
+
+1.user_account
+
+2.note_content
+
+3.contactlist
+
+4.notelist
+
+-----------------------------
+
+一.user_account 中的資料表
+
+create table user_uid(
+    uid int not null auto_increment,
+    PRIMARY KEY (uid))AUTO_INCREMENT=1 ;
+
+create user_account(
+    user_uid int primary key,
+    facebook_uid varchar(45),
+    facebook_picture_hashvalue varchar(45)
+);
+
+create user_account_indexbyfacebook(
+    user_uid int primary key,
+    facebook_uid varchar(45),
+);
+
+二.note_content 中的資料表
+
+create table sticky_uid(
+    uid int not null auto_increment,
+    PRIMARY KEY (uid))AUTO_INCREMENT=1 ;
+
+create table sticky_attribute(
+    sticky_uid int primary key,
+    sender_uid varchar(40),
+    send_time varchar(40),
+    alert_time varchar(40),
+    location varchar(80),  
+    context text);
+    
+create table sticky_receiver(
+    sticky_uid int ,
+    receiver_uid int,
+    accepted int,
+    if_read int)
+
+create table sticky_upload_file(
+    sticky_uid int ,
+    file_name varchar(60),
+    file_type varchar(20),
+    exist int)
+-----------------------------------------
+第三項和第四項database 放置的資料表是使用者的專屬表。
+
+因此一開始是空的，當使用者註冊時才創立。
+
